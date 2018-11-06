@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plate: MyString
+  brand: MyString
+  model: MyString
+  color: MyString
+  year: 1
+  access: false
+  house: one
+
+two:
+  plate: MyString
+  brand: MyString
+  model: MyString
+  color: MyString
+  year: 1
+  access: false
+  house: two
