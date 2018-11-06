@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_type: MyString
+  work_days: MyString
+  enter_date: 2018-11-06
+  leave_date: 2018-11-06
+  house: one
+  person: one
+  vehicle: one
+
+two:
+  contract_type: MyString
+  work_days: MyString
+  enter_date: 2018-11-06
+  leave_date: 2018-11-06
+  house: two
+  person: two
+  vehicle: two

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  species: MyString
+  breed: MyString
+  color: MyString
+  gender: MyString
+  size: MyString
+  access: false
+  house: one
+
+two:
+  species: MyString
+  breed: MyString
+  color: MyString
+  gender: MyString
+  size: MyString
+  access: false
+  house: two
