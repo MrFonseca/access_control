@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20181106193812) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "houses", force: :cascade do |t|
     t.string "number"
     t.string "address"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20181106193812) do
     t.string "document"
     t.string "phone"
     t.boolean "access"
-    t.integer "house_id"
+    t.bigint "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_people_on_house_id"
@@ -39,7 +42,7 @@ ActiveRecord::Schema.define(version: 20181106193812) do
     t.string "gender"
     t.string "size"
     t.boolean "access"
-    t.integer "house_id"
+    t.bigint "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_pets_on_house_id"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20181106193812) do
     t.string "color"
     t.integer "year"
     t.boolean "access"
-    t.integer "house_id"
+    t.bigint "house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_vehicles_on_house_id"
@@ -63,9 +66,9 @@ ActiveRecord::Schema.define(version: 20181106193812) do
     t.string "work_days"
     t.date "enter_date"
     t.date "leave_date"
-    t.integer "house_id"
-    t.integer "person_id"
-    t.integer "vehicle_id"
+    t.bigint "house_id"
+    t.bigint "person_id"
+    t.bigint "vehicle_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["house_id"], name: "index_visits_on_house_id"
@@ -73,4 +76,10 @@ ActiveRecord::Schema.define(version: 20181106193812) do
     t.index ["vehicle_id"], name: "index_visits_on_vehicle_id"
   end
 
+  add_foreign_key "people", "houses"
+  add_foreign_key "pets", "houses"
+  add_foreign_key "vehicles", "houses"
+  add_foreign_key "visits", "houses"
+  add_foreign_key "visits", "people"
+  add_foreign_key "visits", "vehicles"
 end

@@ -1,5 +1,5 @@
 class Visit < ApplicationRecord
-  belongs_to :house
-  belongs_to :person
-  belongs_to :vehicle
+  belongs_to :house, optional: true
+  belongs_to :person, optional: true
+  belongs_to :vehicle, optional: true
 end
