@@ -1,0 +1,50 @@
+<div>House details</div>
+<table class="table table-striped table-bordered">
+  <tbody>
+    <tr>
+      <th scope="row">Number</th>
+      <td><%= @house.number %></td>
+    </tr>
+    <tr>
+      <th scope="row">Address</th>
+      <td><%= @house.address %></td>
+    </tr>
+    <tr>
+      <th scope="row">Route</th>
+      <td><%= @house.route %></td>
+    </tr>
+    <tr>
+      <th scope="row">Status</th>
+      <td><%= @house.status %></td>
+    </tr>
+    <tr>
+      <th scope="row">Residents</th>
+      <td>
+        <ul>
+          <% @house.people.each do |p| %>
+          <li><%= p.name %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Vehicles</th>
+      <td>
+        <ul>
+          <% @house.vehicles.each do |v| %>
+          <li><%= v.plate %> - <%= v.model %></li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">Pets</th>
+      <td><%= @house.pets.count %></td>
+    </tr>
+    <tr>
+      <th scope="row">Employees</th>
+      <td><%= @house.visits.where.not(visits: {contract_type: nil}).count %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to "House index", houses_path, class: "btn btn-dark btn-sm" %>

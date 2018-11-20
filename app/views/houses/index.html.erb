@@ -6,7 +6,7 @@
     <th scope="col">Address</th>
     <th scope="col">Route</th>
     <th scope="col">Status</th>
-    <th scope="col"></th>
+    <th scope="col" colspan="3"></th>
   </thead>
   <% @houses.each do |house| %>
     <tbody>
@@ -14,31 +14,9 @@
       <td><%= house.address %></td>
       <td><%= house.route %></td>
       <td><%= house.status %></td>
-      <td><a href="/houses/<%=house.id%>" data-method="delete" class="btn btn-dark btn-sm">Delete</a></td>
+      <td><%= link_to "Details", house_path(house), class: "btn btn-dark btn-sm" %></td>
+      <td><%= link_to "Edit", edit_house_path(house), class: "btn btn-dark btn-sm" %></td>
+      <td><%= link_to "Delete", house_path(house), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm" %></td>
     </tbody>
   <% end %>
 </table>
-<div class="h2 text-center">New house</div>
-<%= form_for @house, url: "/houses", html: {class: "form-group"} do |f| %>
-  <div class="row">
-    <div class="col-2">
-    <%= f.label :number %>
-    <%= f.text_field :number, class: "form-control" %>
-    </div>
-    <div class="col-2">
-    <%= f.label :address %>
-    <%= f.text_field :address, class: "form-control" %>
-    </div>
-    <div class="col-4">
-    <%= f.label :route %>
-    <%= f.text_field :route, class: "form-control" %>
-    </div>
-    <div class="col-2">
-    <%= f.label :status %>
-    <%= f.text_field :status, class: "form-control" %>
-    </div>
-    <div class="col-2 align-self-end">
-    <%= f.submit "Create", class: "btn btn-dark" %>
-    </div>
-  </div>
-<% end %>
