@@ -2,7 +2,7 @@ class HousesController < ApplicationController
   before_action :set_house, only: %i[edit show update]
 
   def index
-    @houses = House.all
+    @houses = House.includes(:people, :pets, :visits)
   end
 
   def new

@@ -1,5 +1,8 @@
-h1 Visible
-h2.text-center House list
+.row
+  .col-10
+    h1.text-center House list
+  .col-2.align-self-center
+    = link_to "New house", new_house_path, class: "btn btn-dark"
 table.table
   thead class="thead-dark"
     th Number

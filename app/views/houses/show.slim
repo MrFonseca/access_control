@@ -2,32 +2,35 @@ h2.text-center House details
 table.table.table-striped.table-bordered
   tr
     td Number
-    td =@house.number
+    td= @house.number
   tr
     td Address
-    td =@house.address
+    td= @house.address
   tr
     td Route
-    td =@house.route
+    td= @house.route
   tr
     td Status
-    td =@house.status
+    td= @house.status
   tr
     td Residents
     td
       ul
         - @house.people.each do |p|
-          li =p.name
+          li= p.name
   tr
     td Vehicles
     td
       ul
         - @house.vehicles.each do |v|
-          li =v.model
+          li #{v.model} - #{v.plate}
   tr
     td Pets
-    td =@house.pets.count
+    td
+      ul
+        - @house.pets.group_by(&:species).each do |specie, pets|
+          li #{pets.size} #{specie.pluralize(pets.size)}
   tr
     td Employees
-    td =@house.visits.where.not(visits: {contract_type: nil}).count
+    td= @house.employees.size
 =link_to "House index", houses_path, class: "btn btn-dark btn-sm"
