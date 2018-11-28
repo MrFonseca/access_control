@@ -2,8 +2,8 @@ RSpec.describe "deleting a house", type: :feature do
   let!(:house1) { FactoryBot.create :house }
 
   before do
-    # TODO: change to text
-    visit houses_path
+    visit root_url
+    click_on "House index"
   end
 
   it "removes a existing house" do

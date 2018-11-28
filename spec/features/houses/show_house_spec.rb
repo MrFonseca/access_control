@@ -10,8 +10,8 @@ RSpec.describe "show house details", type: :feature do
   end
 
   before do
-    # TODO: change to text
-    visit houses_path
+    visit root_url
+    click_on "House index"
     click_on "Details"
   end
 

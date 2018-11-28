@@ -1,7 +1,7 @@
 RSpec.describe "creating a new house", type: :feature do
   before do
-    # TODO: change to text
-    visit houses_path
+    visit root_url
+    click_on "House index"
     click_on "New house"
   end
 
