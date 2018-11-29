@@ -1,5 +1,5 @@
 RSpec.describe "deleting a house", type: :feature do
-  let!(:house1) { FactoryBot.create :house }
+  let!(:house) { FactoryBot.create :house }
 
   before do
     visit root_url
@@ -11,6 +11,6 @@ RSpec.describe "deleting a house", type: :feature do
       click_on "Delete"
     end.to change(House, :count).by(-1)
     expect(current_path).to eq(houses_path)
-    expect(House.find_by(id: house1.id)).to be_nil
+    expect(House.find_by(id: house.id)).to be_nil
   end
 end

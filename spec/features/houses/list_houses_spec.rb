@@ -1,5 +1,5 @@
 RSpec.describe "list houses", type: :feature do
-  let!(:house1) { FactoryBot.create(:house, address: "Osvaldo") }
+  let!(:house) { FactoryBot.create(:house, address: "Osvaldo") }
 
   before do
     visit root_url

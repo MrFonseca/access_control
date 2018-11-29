@@ -1,13 +1,5 @@
 RSpec.describe "show house details", type: :feature do
-  let!(:house1) do
-    FactoryBot.create(
-      :house,
-      number: "205B",
-      address: "B apartament block",
-      route: "2nd floor of the B block",
-      status: "for sale"
-    )
-  end
+  let!(:house) { FactoryBot.create(:house, number: "205B") }
 
   before do
     visit root_url
@@ -16,7 +8,7 @@ RSpec.describe "show house details", type: :feature do
   end
 
   it "shows house details" do
-    expect(current_path).to eq(house_path(house1))
+    expect(current_path).to eq(house_path(house))
     expect(page).to have_content("205B")
   end
 end
