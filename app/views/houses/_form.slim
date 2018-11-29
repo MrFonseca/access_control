@@ -1,0 +1,16 @@
+= form_with model: @house, html: {class: "form-group"} do |f|
+  .row
+    .col-2
+      = f.label :number
+      = f.text_field :number, class: "form-control"
+    .col-2
+      = f.label :address
+      = f.text_field :address, class: "form-control"
+    .col-4
+      = f.label :route
+      = f.text_field :route, class: "form-control"
+    .col-2
+      = f.label :status
+      = f.text_field :status, class: "form-control"
+    .col-2.align-self-end
+      = f.submit "Submit", class: "btn btn-dark"

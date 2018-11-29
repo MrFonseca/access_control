@@ -1,0 +1,41 @@
+AllCops:
+  TargetRubyVersion: 2.3.3
+  Exclude:
+    - "bin/**/*"
+    - "db/schema.rb"
+    - "db/migrate/*"
+    - "config/initializers/*"
+    - "config/environments/*"
+    - "spec/factories/**/*"
+    - "**/*.slim"
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/IndentationWidth:
+  Width: 2
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/BlockLength:
+  Exclude:
+    - "config/routes.rb"
+
+Naming/FileName:
+  Exclude:
+    - "**/Gemfile"
+    - "**/Rakefile"
+    
