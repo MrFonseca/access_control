@@ -7,6 +7,7 @@ end
 
 gem "bootstrap", "~> 4.1.3"
 gem "coffee-rails", "~> 4.2"
+gem "figaro"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "pg"
