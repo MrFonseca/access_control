@@ -1,0 +1,22 @@
+= form_with model: [ :admin, @person ], local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .form-group
+    = f.label :document
+    = f.text_field :document, class: "form-control"
+  .form-group
+    = f.label :phone
+    = f.text_field :phone, class: "form-control"
+  .form-group
+    .form-check.form-check-inline
+      = f.radio_button :access, "true", class: "form-check-input"
+      = f.label :access_true, "Access allowed", class: "form-check-label"
+    .form-check.form-check-inline
+      = f.radio_button :access, "false", class: "form-check-input"
+      = f.label :access_false, "Access denied", class: "form-check-label"
+  .form-group
+    = f.label :house_id, "House"
+    = f.select :house_id, House.all.collect { |h| [ h.number, h.id ] }, { include_blank: true }, { class: "form-control" }
+  .form-group
+    = f.submit "Submit", class: "btn btn-dark"
