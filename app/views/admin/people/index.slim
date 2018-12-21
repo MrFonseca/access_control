@@ -1,0 +1,24 @@
+.row
+  .col-10
+    h1.text-center People list
+  .col-2.align-self-center
+    = link_to "New person", new_admin_person_path, class: "btn btn-dark"
+table.table
+  thead.thead-dark
+    th Name
+    th House
+    th Document
+    th Phone
+    th Access
+    th{colspan=3}
+  tbody
+  - @people.each do |person|
+    tr
+      td= person.name
+      td= display_house_number(person)
+      td= person.document
+      td= person.phone
+      td= person.access
+      td= link_to "Details", admin_person_path(person), class: "btn btn-sm btn-dark"
+      td= link_to "Edit", edit_admin_person_path(person), class: "btn btn-dark btn-sm"
+      td= link_to "Delete", admin_person_path(person), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"

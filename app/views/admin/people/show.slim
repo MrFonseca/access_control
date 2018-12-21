@@ -1,0 +1,15 @@
+h2.text-center= @person.name
+table.table.table-striped.table-bordered
+  tr
+    td Document
+    td= @person.document
+  tr
+    td Phone number
+    td= @person.phone
+  tr
+    td House
+    td= display_house_number(@person)
+  tr
+    td Access
+    td= @person.access
+= link_to "People index", admin_people_path, class: "btn btn-dark btn-sm"
