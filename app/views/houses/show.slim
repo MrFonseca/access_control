@@ -16,8 +16,8 @@ table.table.table-striped.table-bordered
     td Residents
     td
       ul
-        - @house.people.each do |p|
-          li= p.name
+        - @house.residents.each do |resident|
+          li= resident.name
   tr
     td Vehicles
     td

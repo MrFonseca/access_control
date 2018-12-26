@@ -1,5 +1,5 @@
 class House < ApplicationRecord
-  has_many :people
+  has_many :residents, -> { where.not(house_id: nil) }, class_name: "Person"
   has_many :vehicles
   has_many :pets
   has_many :visits, -> { where(contract_type: nil) }

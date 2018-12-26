@@ -3,7 +3,7 @@ RSpec.describe "show house details", type: :feature do
 
   before do
     admin_login
-    click_on "Details"
+    click_on house.number
   end
 
   it "shows house details" do
