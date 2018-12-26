@@ -16,8 +16,9 @@ table.table.table-striped.table-bordered
     td Residents
     td
       ul
-        - @house.people.each do |p|
-          li= p.name
+        - @house.residents.each do |resident|
+          li= resident.name
+        li= link_to "New resident", new_admin_house_resident_path(@house), class: "btn btn-dark btn-sm"
   tr
     td Vehicles
     td
