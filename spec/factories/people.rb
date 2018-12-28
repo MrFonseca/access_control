@@ -4,6 +4,9 @@ FactoryBot.define do
     sequence :document do |d|
       "#{d}"
     end
-    house
+
+    trait :resident do
+      house
+    end
   end
 end

@@ -1,0 +1,22 @@
+= form_with url: admin_house_residents_path(@house), method: :get, local: true do |f|
+  .form-group
+    = f.label :query, "Search"
+    = f.text_field :query, class: "form-control"
+  .form-group
+    = f.submit "Submit", class: "btn btn-dark"
+table.table
+  thead.thead-dark
+    th Name
+    th Document
+    th Phone
+    th House
+    th{colspan=1}
+  tbody
+  - @people.each do |person|
+    tr
+      td= person.name
+      td= person.document
+      td= person.phone
+      td= display_house_number(person)
+      td= link_to "Add", add_person_admin_house_resident_path(@house, person), method: :patch, class: "btn btn-dark btn-sm"
+= link_to "New resident", new_admin_house_resident_path(@house), class: "btn btn-dark btn-sm"

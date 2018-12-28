@@ -2,6 +2,15 @@ module Admin
   class ResidentsController < Admin::AdminController
     before_action :set_house
 
+    def index
+      @people = Person.where("name ILIKE :query", query: "%#{params[:query]}%")
+    end
+
+    def add_person
+      Person.find(params[:id]).update(house_id: @house.id)
+      redirect_to admin_house_path(@house), notice: "Resident added"
+    end
+
     def new
       @resident = @house.residents.new
     end
@@ -19,7 +28,7 @@ module Admin
     private
 
     def resident_params
-      params.require(:person).permit(:name, :document, :phone).merge(access: true)
+      params.require(:resident).permit(:name, :document, :phone).merge(access: true)
     end
 
     def set_house
