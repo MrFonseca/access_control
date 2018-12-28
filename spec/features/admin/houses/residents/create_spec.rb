@@ -4,6 +4,7 @@ RSpec.describe "creating a new resident", type: :feature do
   before do
     admin_login
     click_on house.number
+    click_on "Add resident"
     click_on "New resident"
   end
 
