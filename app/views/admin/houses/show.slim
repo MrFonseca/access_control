@@ -17,7 +17,7 @@ table.table.table-striped.table-bordered
     td
       ul
         - @house.residents.each do |resident|
-          li= resident.name
+          li= link_to "#{resident.name}", admin_house_resident_path(@house, resident), class: "btn btn-outline-dark btn-sm"
         li= link_to "Add resident", admin_house_residents_path(@house), class: "btn btn-dark btn-sm"
   tr
     td Vehicles

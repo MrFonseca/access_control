@@ -25,6 +25,10 @@ module Admin
       end
     end
 
+    def show
+      @resident = @house.residents.find(params[:id])
+    end
+
     private
 
     def resident_params
