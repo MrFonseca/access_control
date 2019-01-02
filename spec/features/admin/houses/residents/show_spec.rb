@@ -1,11 +1,11 @@
 RSpec.describe "show resident details", type: :feature do
-  let!(:house) { FactoryBot.create :house }
+  let!(:house) { FactoryBot.create(:house, number: "1521") }
   let!(:resident) { FactoryBot.create(:person, :resident, name: "McDuck", house_id: house.id) }
 
   before do
     admin_login
-    click_on house.number
-    click_on resident.name
+    click_on "1521"
+    click_on "McDuck"
   end
 
   it "opens resident page" do
