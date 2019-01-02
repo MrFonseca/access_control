@@ -1,0 +1,14 @@
+h1.text-center= @resident.name
+table.table
+  tbody
+    tr
+      td Document
+      td= @resident.document
+    tr
+      td Phone
+      td= @resident.phone
+    tr
+      td House
+      td= link_to "#{@house.number}", admin_house_path(@house), class: "btn btn-dark btn-sm"
+
+/ = link_to "People index", admin_people_path, class: "btn btn-dark btn-sm"
