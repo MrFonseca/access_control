@@ -3,7 +3,7 @@ module Admin
     before_action :set_house
 
     def index
-      @people = Person.where("name ILIKE :query", query: "%#{params[:query]}%")
+      @people = Person.where("name ILIKE :query OR document ILIKE :query OR phone ILIKE :query", query: "%#{params[:query]}%")
     end
 
     def add_person
