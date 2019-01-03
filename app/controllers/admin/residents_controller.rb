@@ -1,7 +1,7 @@
 module Admin
   class ResidentsController < Admin::AdminController
     before_action :set_house
-    before_action :set_resident, only: %i[edit show update]
+    before_action :set_resident, only: %i[edit show update destroy]
 
     def index
       @people = Person.where("name ILIKE :query OR document ILIKE :query OR phone ILIKE :query", query: "%#{params[:query]}%")
@@ -36,6 +36,11 @@ module Admin
       else
         render "edit"
       end
+    end
+
+    def destroy
+      @resident.update(house_id: nil)
+      redirect_to admin_house_path(@house), notice: "#{@resident.name} moved out from #{@house.number}"
     end
 
     private
