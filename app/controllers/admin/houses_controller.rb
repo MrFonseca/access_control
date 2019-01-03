@@ -1,6 +1,6 @@
 module Admin
   class HousesController < Admin::AdminController
-    before_action :set_house, only: %i[edit show update]
+    before_action :set_house, only: %i[edit show update destroy]
 
     def index
       @houses = House.all
@@ -33,7 +33,6 @@ module Admin
     end
 
     def destroy
-      @house = House.find(params[:id])
       @house.destroy
       redirect_to admin_houses_path
     end

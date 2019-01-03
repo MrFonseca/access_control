@@ -11,5 +11,6 @@ table.table
       td House
       td= link_to "#{@house.number}", admin_house_path(@house), class: "btn btn-dark btn-sm"
 = link_to "Edit", edit_admin_house_resident_path(@house, @resident), class: "btn btn-dark btn-sm"
+= link_to "Move out", admin_house_resident_path(@house, @resident), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"
 
 / = link_to "People index", admin_people_path, class: "btn btn-dark btn-sm"
