@@ -1,6 +1,7 @@
 module Admin
   class ResidentsController < Admin::AdminController
     before_action :set_house
+    before_action :set_resident, only: %i[edit show update]
 
     def index
       @people = Person.where("name ILIKE :query OR document ILIKE :query OR phone ILIKE :query", query: "%#{params[:query]}%")
@@ -25,17 +26,11 @@ module Admin
       end
     end
 
-    def show
-      @resident = @house.residents.find(params[:id])
-    end
+    def show; end
 
-    def edit
-      @resident = @house.residents.find(params[:id])
-    end
+    def edit; end
 
     def update
-      @resident = @house.residents.find(params[:id])
-
       if @resident.update(resident_params)
         redirect_to admin_house_resident_path(@house, @resident), notice: "Resident updated"
       else
@@ -51,6 +46,10 @@ module Admin
 
     def set_house
       @house = House.find(params[:house_id])
+    end
+
+    def set_resident
+      @resident = @house.residents.find(params[:id])
     end
   end
 end
