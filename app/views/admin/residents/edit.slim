@@ -1,0 +1,3 @@
+= form_with scope: :resident, url: admin_house_resident_path(@house, @resident), method: :patch, local: true do |f|
+  = render "form_fields", f: f
+/ = link_to "People index", admin_people_path, class: "btn btn-dark btn-sm"
