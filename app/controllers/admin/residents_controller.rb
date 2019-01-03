@@ -29,6 +29,20 @@ module Admin
       @resident = @house.residents.find(params[:id])
     end
 
+    def edit
+      @resident = @house.residents.find(params[:id])
+    end
+
+    def update
+      @resident = @house.residents.find(params[:id])
+
+      if @resident.update(resident_params)
+        redirect_to admin_house_resident_path(@house, @resident), notice: "Resident updated"
+      else
+        render "edit"
+      end
+    end
+
     private
 
     def resident_params
