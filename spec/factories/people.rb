@@ -7,6 +7,7 @@ FactoryBot.define do
 
     trait :resident do
       house
+      access true
     end
   end
 end

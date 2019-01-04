@@ -39,7 +39,7 @@ module Admin
     end
 
     def destroy
-      @resident.update(house_id: nil)
+      @resident.update(house_id: nil, access: false)
       redirect_to admin_house_path(@house), notice: "#{@resident.name} moved out from #{@house.number}"
     end
 

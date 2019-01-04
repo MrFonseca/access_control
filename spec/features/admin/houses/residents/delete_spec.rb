@@ -14,6 +14,9 @@ RSpec.describe "removing a resident from a house", type: :feature do
     expect(current_path).to eq(admin_house_path(house))
     expect(page).to have_content("Peter Pan moved out from 1433")
     resident.reload
-    expect(resident.house_id).to be_nil
+    expect(resident).to have_attributes(
+      access: false,
+      house_id: nil
+    )
   end
 end
