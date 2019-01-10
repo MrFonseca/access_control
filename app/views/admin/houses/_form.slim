@@ -1,16 +1,15 @@
 = form_with model: [ :admin, @house ], local: true do |f|
-  .row
-    .col-2.form-group
-      = f.label :number
-      = f.text_field :number, class: "form-control"
-    .col-2.form-group
-      = f.label :address
-      = f.text_field :address, class: "form-control"
-    .col-4.form-group
-      = f.label :route
-      = f.text_field :route, class: "form-control"
-    .col-2.form-group
-      = f.label :status
-      = f.text_field :status, class: "form-control"
-    .col-2.align-self-end.form-group
-      = f.submit "Submit", class: "btn btn-dark"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :number
+    = f.text_field :number, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :address
+    = f.text_field :address, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :route
+    = f.text_field :route, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :status
+    = f.text_field :status, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.align-self-end.form-group
+    = f.submit "Submit", class: "btn btn-dark"

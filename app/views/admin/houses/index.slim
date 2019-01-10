@@ -1,21 +1,17 @@
-.row
-  .col-10
+.row.my-3
+  .col-lg-10
     h1.text-center House list
-  .col-2.align-self-center
+  .col-lg-2.align-self-center.text-center
     = link_to "New house", new_admin_house_path, class: "btn btn-dark"
 table.table
   thead class="thead-dark"
-    th Number
+    th House
     th Address
-    th Route
-    th Status
     th{colspan=2}
   tbody
   - @houses.each do |house|
     tr
       td= link_to house.number, admin_house_path(house), class: "btn btn-outline-dark btn-sm"
       td= house.address
-      td= house.route
-      td= house.status
       td= link_to "Edit", edit_admin_house_path(house), class: "btn btn-dark btn-sm"
       td= link_to "Delete", admin_house_path(house), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"
