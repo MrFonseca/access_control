@@ -18,5 +18,5 @@ table.table
       td= person.document
       td= person.phone
       td= display_house_number(person)
-      td= link_to "Add", add_person_admin_house_resident_path(@house, person), method: :patch, class: "btn btn-dark btn-sm"
+      td= link_to "Add", add_person_admin_house_resident_path(@house, person), method: :patch, class: "btn btn-dark btn-sm #{'disabled' if person.resident?}"
 = link_to "New resident", new_admin_house_resident_path(@house), class: "btn btn-dark btn-sm"

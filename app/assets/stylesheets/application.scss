@@ -3,3 +3,7 @@
 .alert-notice {
   @extend .alert-success;
 }
+
+.no-mark {
+  list-style-type: none;
+}

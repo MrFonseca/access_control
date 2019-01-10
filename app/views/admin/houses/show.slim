@@ -15,20 +15,20 @@ table.table.table-striped.table-bordered
   tr
     td Residents
     td
-      ul
+      ul.no-mark
         - @house.residents.each do |resident|
           li= link_to "#{resident.name}", admin_house_resident_path(@house, resident), class: "btn btn-outline-dark btn-sm"
         li= link_to "Add resident", admin_house_residents_path(@house), class: "btn btn-dark btn-sm"
   tr
     td Vehicles
     td
-      ul
+      ul.no-mark
         - @house.vehicles.each do |v|
           li #{v.model} - #{v.plate}
   tr
     td Pets
     td
-      ul
+      ul.no-mark
         - @house.pets.group_by(&:species).each do |specie, pets|
           li #{pets.size} #{specie.pluralize(pets.size)}
   tr

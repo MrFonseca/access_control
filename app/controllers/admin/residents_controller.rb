@@ -4,7 +4,7 @@ module Admin
     before_action :set_resident, only: %i[edit show update destroy]
 
     def index
-      @people = Person.where("name ILIKE :query OR document ILIKE :query OR phone ILIKE :query", query: "%#{params[:query]}%")
+      @people = Person.includes(:house).where("name ILIKE :query OR document ILIKE :query OR phone ILIKE :query", query: "%#{params[:query]}%")
     end
 
     def add_person
