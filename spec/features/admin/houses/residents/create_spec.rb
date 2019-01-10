@@ -22,7 +22,6 @@ RSpec.describe "creating a new resident", type: :feature do
         name:     "Marty McFly",
         document: "past1955",
         phone:    "20151985",
-        access:   true,
         house_id: house.id
       )
     end

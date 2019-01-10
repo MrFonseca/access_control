@@ -46,7 +46,7 @@ module Admin
     private
 
     def resident_params
-      params.require(:resident).permit(:name, :document, :phone).merge(access: true)
+      params.require(:resident).permit(:name, :document, :phone)
     end
 
     def set_house
