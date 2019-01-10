@@ -4,4 +4,8 @@ class Person < ApplicationRecord
 
   validates :name, presence: true
   validates :document, uniqueness: { case_sensitive: false }, presence: true
+
+  def resident?
+    house_id.present?
+  end
 end
