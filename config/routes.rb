@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :residents do
         patch :add_person, on: :member
       end
+      resources :pets
     end
     resources :people
   end
