@@ -46,12 +46,12 @@ Vehicle.create(plate: 'SVG 4534', brand: 'VW',      model: 'Up',     color: 'whi
 Vehicle.create(plate: 'DFB 1454', brand: 'VW',      model: 'Voyage', color: 'red',    year: 2015, access: false, house_id: nil)
 Vehicle.create(plate: 'JHV 6247', brand: 'Fiat',    model: '500',    color: 'red',    year: 2017, access: false, house_id: nil)
 
-Pet.create(species: 'dog', breed: 'poodle',  color: 'white',  gender: 'male',   size: 'small',  access: true, house_id: 1)
-Pet.create(species: 'dog', breed: 'bulldog', color: 'brown',  gender: 'female', size: 'small',  access: true, house_id: 2)
-Pet.create(species: 'dog', breed: 'pitbull', color: 'white',  gender: 'male',   size: 'medium', access: true, house_id: 3)
-Pet.create(species: 'cat', breed: 'siamese', color: 'white',  gender: 'male',   size: 'small',  access: true, house_id: 4)
-Pet.create(species: 'cat', breed: 'persian', color: 'yellow', gender: 'female', size: 'small',  access: true, house_id: 4)
-Pet.create(species: 'cat', breed: 'mixed',   color: 'black',  gender: 'female', size: 'small',  access: true, house_id: 4)
+Pet.create(species: 'dog', breed: 'poodle',  color: 'white',  gender: 'male',   size: 'small',  name: "Jon", house_id: 1)
+Pet.create(species: 'dog', breed: 'bulldog', color: 'brown',  gender: 'female', size: 'small',  name: "Sansa", house_id: 2)
+Pet.create(species: 'dog', breed: 'pitbull', color: 'white',  gender: 'male',   size: 'medium', name: "Bran", house_id: 3)
+Pet.create(species: 'cat', breed: 'siamese', color: 'white',  gender: 'male',   size: 'small',  name: "Tirion", house_id: 4)
+Pet.create(species: 'cat', breed: 'persian', color: 'yellow', gender: 'female', size: 'small',  name: "Denny", house_id: 4)
+Pet.create(species: 'cat', breed: 'mixed',   color: 'black',  gender: 'female', size: 'small',  name: "Aria", house_id: 4)
 
 Visit.create(person_id: 17, house_id: 1, vehicle_id: 12,  contract_type: 'freelancer', work_days: nil, enter_date: '01/10/2018', leave_date: '02/11/2018')
 Visit.create(person_id: 18, house_id: 2, vehicle_id: nil, contract_type: nil,          work_days: nil, enter_date: '01/10/2018', leave_date: '01/10/2018')
