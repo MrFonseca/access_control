@@ -1,0 +1,37 @@
+= form_with model: [ :admin, @house, @pet ], local: true do |f|
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :species
+    = f.text_field :species, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :breed
+    = f.text_field :breed, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :color
+    = f.text_field :color, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    p Gender
+    .form-check.form-check-inline
+      = f.radio_button :gender, "Female", class: "form-check-input"
+      = f.label :gender_female, "Female", class: "form-check-label"
+    .form-check.form-check-inline
+      = f.radio_button :gender, "Male", class: "form-check-input"
+      = f.label :gender_male, "Male", class: "form-check-label"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    p Size
+    .form-check.form-check-inline
+      = f.radio_button :size, "Small", class: "form-check-input"
+      = f.label :size_small, "Small", class: "form-check-label"
+    .form-check.form-check-inline
+      = f.radio_button :size, "Medium", class: "form-check-input"
+      = f.label :size_medium, "Medium", class: "form-check-label"
+    .form-check.form-check-inline
+      = f.radio_button :size, "Big", class: "form-check-input"
+      = f.label :size_big, "Big", class: "form-check-label"
+    .form-check.form-check-inline
+      = f.radio_button :size, "Giant", class: "form-check-input"
+      = f.label :size_giant, "Giant", class: "form-check-label"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.submit "Submit", class: "btn btn-dark btn-block"
