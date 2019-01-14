@@ -1,6 +1,7 @@
 module Admin
   class PetsController < Admin::AdminController
     before_action :set_house
+    before_action :set_pet, only: %i[edit show update destroy]
 
     def index
       @pets = @house.pets
@@ -20,6 +21,16 @@ module Admin
       end
     end
 
+    def edit; end
+
+    def update
+      if @pet.update(pet_params)
+        redirect_to admin_house_pets_path(@house), notice: "Pet updated"
+      else
+        render "edit"
+      end
+    end
+
     private
 
     def pet_params
@@ -28,6 +39,10 @@ module Admin
 
     def set_house
       @house = House.find(params[:house_id])
+    end
+
+    def set_pet
+      @pet = @house.pets.find(params[:id])
     end
   end
 end

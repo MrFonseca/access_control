@@ -4,7 +4,7 @@ RSpec.describe "creating a new pet", type: :feature do
   before do
     admin_login
     click_on "114"
-    click_on "Add pet"
+    click_on "House pets"
     click_on "New pet"
   end
 
