@@ -1,7 +1,7 @@
 module Admin
   class PetsController < Admin::AdminController
     before_action :set_house
-    before_action :set_pet, only: %i[edit show update destroy]
+    before_action :set_pet, only: %i[edit update destroy]
 
     def index
       @pets = @house.pets
@@ -29,6 +29,11 @@ module Admin
       else
         render "edit"
       end
+    end
+
+    def destroy
+      @pet.destroy
+      redirect_to admin_house_pets_path(@house), notice: "Pet deleted"
     end
 
     private
