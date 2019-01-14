@@ -5,7 +5,7 @@ RSpec.describe "lists all pets in the house", type: :feature do
   before do
     admin_login
     click_on "153"
-    click_on "Add pet"
+    click_on "House pets"
   end
 
   it "lists all pets attributes in the house" do
