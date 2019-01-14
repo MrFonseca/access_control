@@ -11,7 +11,7 @@ table.table
     th Color
     th Gender
     th Size
-    th{colspan=1}
+    th{colspan=2}
   tbody
   - @pets.each do |pet|
     tr
@@ -22,3 +22,4 @@ table.table
       td= pet.gender
       td= pet.size
       td= link_to "Edit", edit_admin_house_pet_path(@house, pet), class: "btn btn-dark btn-sm"
+      td= link_to "Delete", admin_house_pet_path(@house, pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"
