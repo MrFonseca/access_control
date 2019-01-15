@@ -3,23 +3,23 @@
     = link_to "#{@house.number}", admin_house_path(@house), class: "btn btn-outline-dark btn-block"
   .col
     = link_to "New pet", new_admin_house_pet_path(@house), class: "btn btn-dark btn-block"
-table.table
-  thead.thead-dark
-    th Name
-    th Species
-    th Breed
-    th Color
-    th Gender
-    th Size
-    th{colspan=2}
+table.table.table-striped
   tbody
   - @pets.each do |pet|
     tr
-      td= pet.name
-      td= pet.species
-      td= pet.breed
-      td= pet.color
-      td= pet.gender
-      td= pet.size
-      td= link_to "Edit", edit_admin_house_pet_path(@house, pet), class: "btn btn-dark btn-sm"
-      td= link_to "Delete", admin_house_pet_path(@house, pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"
+      td
+        dl.row
+          dt.col-6 Name
+          dd.col-6= pet.name
+          dt.col-6 Species
+          dd.col-6= pet.species
+          dt.col-6 Breed
+          dd.col-6= pet.breed
+          dt.col-6 Color
+          dd.col-6= pet.color
+          dt.col-6 Gender
+          dd.col-6= pet.gender
+          dt.col-6 Size
+          dd.col-6= pet.size
+      td.align-middle= link_to "Edit", edit_admin_house_pet_path(@house, pet), class: "btn btn-dark btn-sm"
+      td.align-middle= link_to "Delete", admin_house_pet_path(@house, pet), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm"
