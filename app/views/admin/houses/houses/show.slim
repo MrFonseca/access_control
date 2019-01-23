@@ -25,6 +25,7 @@ table.table.table-striped.table-bordered
       ul.no-mark
         - @house.vehicles.each do |v|
           li #{v.model} - #{v.plate}
+        li= link_to "Add vehicle", admin_house_vehicles_path(@house), class: "btn btn-dark btn-sm"
   tr
     td Pets
     td

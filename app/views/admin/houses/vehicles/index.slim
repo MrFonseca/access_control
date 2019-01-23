@@ -1,0 +1,25 @@
+= form_with url: admin_house_vehicles_path(@house), method: :get, local: true do |f|
+  .form-group
+    = f.label :query, "Search"
+    = f.text_field :query, class: "form-control"
+  .form-group
+    = f.submit "Submit", class: "btn btn-dark"
+table.table
+  thead.thead-dark
+    th Plate
+    th Brand
+    th Model
+    th Color
+    th Year
+    th House
+    th{colspan=1}
+  tbody
+  - @vehicles.each do |vehicle|
+    tr
+      td= vehicle.plate
+      td= vehicle.brand
+      td= vehicle.model
+      td= vehicle.color
+      td= vehicle.year
+      td= display_house_number(vehicle)
+      td= link_to "Add", add_vehicle_admin_house_vehicle_path(@house, vehicle), method: :patch, class: "btn btn-dark btn-sm #{'disabled' if vehicle.house_id.present?}"

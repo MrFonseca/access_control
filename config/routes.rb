@@ -5,7 +5,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :houses, module: "houses" do
-      resources :vehicles
+      resources :vehicles do
+        patch :add_vehicle, on: :member
+      end
       resources :residents do
         patch :add_person, on: :member
       end
