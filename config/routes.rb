@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resources :houses, only: %i[index show]
 
   namespace :admin do
-    resources :houses do
+    resources :houses, module: "houses" do
+      resources :vehicles
       resources :residents do
         patch :add_person, on: :member
       end
