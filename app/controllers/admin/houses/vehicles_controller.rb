@@ -12,7 +12,25 @@ module Admin
         redirect_to admin_house_path(@house), notice: "Vehicle added"
       end
 
+      def new
+        @vehicle = @house.vehicles.new
+      end
+
+      def create
+        @vehicle = @house.vehicles.new(vehicle_params)
+
+        if @vehicle.save
+          redirect_to admin_house_path(@house), notice: "Vehicle created"
+        else
+          render "new"
+        end
+      end
+
       private
+
+      def vehicle_params
+        params.require(:vehicle).permit(:plate, :brand, :model, :color, :year)
+      end
 
       def set_house
         @house = House.find(params[:house_id])
