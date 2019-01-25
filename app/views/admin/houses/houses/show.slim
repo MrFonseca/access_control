@@ -22,10 +22,11 @@ table.table.table-striped.table-bordered
   tr
     td Vehicles
     td
-      ul.no-mark
-        - @house.vehicles.each do |v|
-          li #{v.model} - #{v.plate}
-        li= link_to "Add vehicle", admin_house_vehicles_path(@house), class: "btn btn-dark btn-sm"
+      - @house.vehicles.each do |vehicle|
+        dl.row
+          dt.col-6= link_to "#{vehicle.plate}", admin_house_vehicle_path(@house, vehicle), class: "btn btn-outline-dark btn-sm"
+          dd.col-6= vehicle.model
+      = link_to "Add vehicle", admin_house_vehicles_path(@house), class: "btn btn-dark btn-sm"
   tr
     td Pets
     td

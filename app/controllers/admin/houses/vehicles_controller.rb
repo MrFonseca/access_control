@@ -2,6 +2,7 @@ module Admin
   module Houses
     class VehiclesController < Admin::AdminController
       before_action :set_house
+      before_action :set_vehicle, only: :show
 
       def index
         @vehicles = Vehicle.includes(:house).where("plate ILIKE :query", query: "%#{params[:query]}%")
@@ -26,6 +27,8 @@ module Admin
         end
       end
 
+      def show; end
+
       private
 
       def vehicle_params
@@ -34,6 +37,10 @@ module Admin
 
       def set_house
         @house = House.find(params[:house_id])
+      end
+
+      def set_vehicle
+        @vehicle = @house.vehicles.find(params[:id])
       end
     end
   end
