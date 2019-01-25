@@ -1,0 +1,18 @@
+= form_with model: [ :admin, @house, @vehicle ], local: true do |f|
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :plate
+    = f.text_field :plate, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :brand
+    = f.text_field :brand, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :model
+    = f.text_field :model, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :color
+    = f.text_field :color, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.label :year
+    = f.text_field :year, class: "form-control"
+  .col-12.col-lg-6.offset-lg-3.form-group
+    = f.submit "Submit", class: "btn btn-dark btn-block"

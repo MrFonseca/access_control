@@ -23,3 +23,4 @@ table.table
       td= vehicle.year
       td= display_house_number(vehicle)
       td= link_to "Add", add_vehicle_admin_house_vehicle_path(@house, vehicle), method: :patch, class: "btn btn-dark btn-sm #{'disabled' if vehicle.house_id.present?}"
+= link_to "New vehicle", new_admin_house_vehicle_path(@house), class: "btn btn-dark btn-sm"
