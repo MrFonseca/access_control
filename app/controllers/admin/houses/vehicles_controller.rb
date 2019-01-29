@@ -2,7 +2,7 @@ module Admin
   module Houses
     class VehiclesController < Admin::AdminController
       before_action :set_house
-      before_action :set_vehicle, only: %i[show edit update]
+      before_action :set_vehicle, only: %i[show edit update destroy]
 
       def index
         @vehicles = Vehicle.includes(:house).where("plate ILIKE :query", query: "%#{params[:query]}%")
@@ -37,6 +37,11 @@ module Admin
         else
           render "edit"
         end
+      end
+
+      def destroy
+        @vehicle.update(house_id: nil)
+        redirect_to admin_house_path(@house), notice: "Vehicle removed from house #{@house.number}"
       end
 
       private
