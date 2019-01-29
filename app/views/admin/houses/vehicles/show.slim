@@ -19,3 +19,4 @@ table.table
       td House
       td= @house.number
 = link_to "Edit", edit_admin_house_vehicle_path(@house, @vehicle), class: "btn btn-dark btn-sm"
+= link_to "Remove from house #{@house.number}", admin_house_vehicle_path(@house, @vehicle), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-dark btn-sm mx-2"
