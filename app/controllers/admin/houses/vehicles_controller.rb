@@ -2,7 +2,7 @@ module Admin
   module Houses
     class VehiclesController < Admin::AdminController
       before_action :set_house
-      before_action :set_vehicle, only: :show
+      before_action :set_vehicle, only: %i[show edit update]
 
       def index
         @vehicles = Vehicle.includes(:house).where("plate ILIKE :query", query: "%#{params[:query]}%")
@@ -28,6 +28,16 @@ module Admin
       end
 
       def show; end
+
+      def edit; end
+
+      def update
+        if @vehicle.update(vehicle_params)
+          redirect_to admin_house_vehicle_path(@house, @vehicle), notice: "Vehicle updated"
+        else
+          render "edit"
+        end
+      end
 
       private
 
